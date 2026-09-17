@@ -1,0 +1,483 @@
+@import url('https://fonts.cdnfonts.com/css/harry-potter');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-family: Georgia, 'Times New Roman', serif;
+
+    background:
+        linear-gradient(
+            rgba(5, 5, 9, 0.72),
+            rgba(8, 5, 12, 0.90)
+        ),
+        url("img/Harry Potter Wallpaper For PC.jpg");
+
+    background-size: cover;
+    background-position: center;
+
+    color: #ddd;
+
+    overflow: hidden;
+
+    position: relative;
+}
+
+
+
+
+body::before {
+    content: "";
+
+    position: fixed;
+
+    inset: 0;
+
+    background:
+        radial-gradient(
+            circle at center,
+            transparent 20%,
+            rgba(0, 0, 0, 0.65) 100%
+        );
+
+    pointer-events: none;
+}
+
+
+
+
+body::after {
+    content: "✦     ✧          ✦        ✧";
+
+    position: fixed;
+
+    top: 10%;
+    left: 8%;
+
+    width: 85%;
+
+    color: rgba(194, 158, 76, 0.35);
+
+    font-size: 13px;
+
+    letter-spacing: 25px;
+
+    pointer-events: none;
+}
+
+
+.center {
+
+    width: 430px;
+
+    padding: 48px 52px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(13, 12, 18, 0.97),
+            rgba(20, 16, 23, 0.96)
+        );
+
+    border: 1px solid rgba(174, 137, 53, 0.65);
+
+    position: relative;
+
+    box-shadow:
+        0 25px 80px rgba(0, 0, 0, 0.85),
+        0 0 25px rgba(174, 137, 53, 0.08);
+
+    animation: aparecer 1s ease;
+}
+
+
+
+
+.center::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 8px;
+
+    border: 1px solid rgba(174, 137, 53, 0.20);
+
+    pointer-events: none;
+}
+
+
+
+.center::after {
+
+    content: "✦";
+
+    position: absolute;
+
+    top: -15px;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    width: 30px;
+
+    height: 30px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background: #0d0c12;
+
+    border: 1px solid rgba(174, 137, 53, 0.6);
+
+    border-radius: 50%;
+
+    color: #c6a24b;
+
+    font-size: 14px;
+
+    box-shadow:
+        0 0 12px rgba(174, 137, 53, 0.15);
+}
+
+
+
+
+.center h1 {
+
+    text-align: center;
+
+    font-family: 'Harry Potter', Georgia, serif;
+
+    font-size: 44px;
+
+    font-weight: normal;
+
+    letter-spacing: 3px;
+
+    color: #c6a24b;
+
+    margin-bottom: 38px;
+
+    text-shadow:
+        0 2px 5px #000,
+        0 0 12px rgba(198, 162, 75, 0.18);
+}
+
+
+
+
+.txt_field {
+
+    margin-bottom: 25px;
+
+}
+
+.txt_field label {
+
+    display: block;
+
+    margin-bottom: 9px;
+
+    color: #b9b1a4;
+
+    font-size: 14px;
+
+    letter-spacing: 1.5px;
+
+    text-transform: uppercase;
+}
+
+
+.txt_field input {
+
+    width: 100%;
+
+    height: 48px;
+
+    padding: 0 15px;
+
+    background: rgba(0, 0, 0, 0.38);
+
+    border: none;
+
+    border-bottom: 1px solid #62543a;
+
+    outline: none;
+
+    color: #eee;
+
+    font-family: Georgia, serif;
+
+    font-size: 16px;
+
+    transition: 0.35s;
+}
+
+
+.txt_field input::placeholder {
+
+    color: #57525b;
+}
+
+
+.txt_field input:focus {
+
+    border-bottom-color: #c6a24b;
+
+    box-shadow:
+        0 5px 15px rgba(198, 162, 75, 0.06);
+}
+
+
+
+
+.pass {
+
+    text-align: right;
+
+    margin-top: -8px;
+
+    margin-bottom: 28px;
+}
+
+
+.pass a {
+
+    color: #8d836f;
+
+    font-size: 13px;
+
+    text-decoration: none;
+
+    transition: 0.3s;
+}
+
+
+.pass a:hover {
+
+    color: #c6a24b;
+
+    text-shadow:
+        0 0 8px rgba(198, 162, 75, 0.4);
+}
+
+
+
+
+.botoes {
+
+    display: flex;
+
+    gap: 12px;
+
+}
+
+
+.botoes input {
+
+    height: 46px;
+
+    font-family: Georgia, serif;
+
+    font-size: 14px;
+
+    letter-spacing: 0.5px;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+
+
+
+.btn-conectar {
+
+    flex: 1;
+
+    background: #b08a32;
+
+    border: 1px solid #d0ae57;
+
+    color: #0d0b0f;
+
+    font-weight: bold;
+
+    box-shadow:
+        0 5px 20px rgba(0, 0, 0, 0.35);
+}
+
+
+.btn-conectar:hover {
+
+    background: #c6a24b;
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 8px 25px rgba(198, 162, 75, 0.15);
+}
+
+
+
+.btn-cancelar {
+
+    flex: 1;
+
+    background: transparent;
+
+    border: 1px solid #49423a;
+
+    color: #8f887c;
+}
+
+
+.btn-cancelar:hover {
+
+    border-color: #766442;
+
+    color: #c6a24b;
+
+    background: rgba(198, 162, 75, 0.03);
+}
+
+
+
+.signup_link {
+
+    text-align: center;
+
+    margin-top: 30px;
+
+    font-size: 14px;
+
+    color: #66616a;
+}
+
+
+.signup_link a {
+
+    color: #9b8143;
+
+    text-decoration: none;
+
+    transition: 0.3s;
+}
+
+
+.signup_link a:hover {
+
+    color: #c6a24b;
+
+    text-shadow:
+        0 0 8px rgba(198, 162, 75, 0.35);
+}
+
+
+
+@keyframes aparecer {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(25px)
+            scale(0.97);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+
+    }
+}
+
+
+
+
+@media (max-width: 500px) {
+
+    .center {
+
+        width: 90%;
+
+        padding: 42px 28px;
+
+    }
+
+    .center h1 {
+
+        font-size: 37px;
+
+    }
+
+    .botoes {
+
+        flex-direction: column;
+
+    }
+}
+
+.txt_field select {
+
+    width: 100%;
+
+    height: 48px;
+
+    padding: 0 15px;
+
+    background: rgba(0, 0, 0, 0.38);
+
+    border: none;
+
+    border-bottom: 1px solid #62543a;
+
+    outline: none;
+
+    color: #eee;
+
+    font-family: Georgia, serif;
+
+    font-size: 16px;
+
+    transition: 0.35s;
+
+    cursor: pointer;
+}
+
+
+.txt_field select:focus {
+
+    border-bottom-color: #c6a24b;
+
+    box-shadow:
+        0 5px 15px rgba(198, 162, 75, 0.06);
+}
+
+
+.txt_field select option {
+
+    background: #141017;
+
+    color: #eee;
+}

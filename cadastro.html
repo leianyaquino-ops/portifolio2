@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Cadastro</title>
+
+    <link rel="stylesheet" href="login.css">
+</head>
+
+<body>
+
+    <div class="center">
+
+        <h1>Cadastro</h1>
+
+        <form onsubmit="cadastrar(); return false;">
+
+            <div class="txt_field">
+                <label for="novoLogin">Usuário</label>
+
+                <input
+                    type="text"
+                    id="novoLogin"
+                    placeholder="Crie seu usuário"
+                    required
+                >
+            </div>
+
+            <div class="txt_field">
+                <label for="novaSenha">Senha</label>
+
+                <input
+                    type="password"
+                    id="novaSenha"
+                    placeholder="Crie sua senha"
+                    required
+                >
+            </div>
+
+            <div class="txt_field">
+                <label for="confirmarSenha">Confirmar senha</label>
+
+                <input
+                    type="password"
+                    id="confirmarSenha"
+                    placeholder="Digite sua senha novamente"
+                    required
+                >
+            </div>
+
+            <div class="txt_field">
+                <label for="tipoUsuario">Tipo de usuário</label>
+
+                <select id="tipoUsuario" required>
+                    <option value="">Selecione o tipo de usuário</option>
+                    <option value="aluno">Aluno</option>
+                    <option value="professor">Professor</option>
+                    <option value="administrador">Administrador</option>
+                </select>
+            </div>
+
+            <div class="botoes">
+
+                <input
+                    type="submit"
+                    value="Cadastrar"
+                    class="btn-conectar"
+                >
+
+                <input
+                    type="reset"
+                    value="Cancelar"
+                    class="btn-cancelar"
+                >
+
+            </div>
+
+            <div class="signup_link">
+
+                <a href="login.html">
+                    Já possui uma conta? Entrar 
+                </a>
+
+            </div>
+
+        </form>
+
+    </div>
+
+    <script src="cadastro.js"></script>
+
+</body>
+
+</html>

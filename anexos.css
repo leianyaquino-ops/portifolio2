@@ -1,0 +1,1248 @@
+/* =====================================================
+   RESET
+===================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+
+    min-height: 100vh;
+
+    background:
+        #0b0609;
+
+    color: #c8bb9b;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    overflow-x: hidden;
+
+}
+
+
+/* =====================================================
+   FUNDO HOGWARTS
+===================================================== */
+
+.fundo {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: -5;
+
+    background:
+
+        linear-gradient(
+            rgba(10, 4, 8, .72),
+            rgba(10, 4, 8, .90)
+        ),
+
+        url("img/hogwarts.jpg")
+        center / cover no-repeat;
+
+}
+
+
+.fundo::after {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+
+        radial-gradient(
+            circle at 50% 30%,
+            rgba(125, 64, 49, .15),
+            transparent 45%
+        );
+
+}
+
+
+/* =====================================================
+   ESTRELAS
+===================================================== */
+
+.estrelas span {
+
+    position: fixed;
+
+    z-index: -1;
+
+    color: #d4af37;
+
+    font-size: 13px;
+
+    opacity: .55;
+
+    animation: brilho 4s infinite ease-in-out;
+
+}
+
+
+.estrelas span:nth-child(1) {
+    top: 10%;
+    left: 27%;
+}
+
+.estrelas span:nth-child(2) {
+    top: 18%;
+    left: 74%;
+}
+
+.estrelas span:nth-child(3) {
+    top: 35%;
+    left: 52%;
+}
+
+.estrelas span:nth-child(4) {
+    top: 48%;
+    left: 87%;
+}
+
+.estrelas span:nth-child(5) {
+    top: 63%;
+    left: 31%;
+}
+
+.estrelas span:nth-child(6) {
+    top: 76%;
+    left: 72%;
+}
+
+.estrelas span:nth-child(7) {
+    top: 88%;
+    left: 44%;
+}
+
+.estrelas span:nth-child(8) {
+    top: 29%;
+    left: 12%;
+}
+
+
+@keyframes brilho {
+
+    0%,
+    100% {
+
+        opacity: .2;
+
+        transform:
+            scale(.8);
+
+    }
+
+    50% {
+
+        opacity: .9;
+
+        transform:
+            scale(1.2);
+
+    }
+
+}
+
+
+/* =====================================================
+   MENU
+===================================================== */
+
+.menu {
+
+    position: fixed;
+
+    left: 0;
+    top: 0;
+
+    width: 210px;
+
+    height: 100vh;
+
+    padding: 42px 30px;
+
+    background:
+        rgba(5, 3, 6, .93);
+
+    border-right:
+        1px solid
+        rgba(212,175,55,.20);
+
+    z-index: 50;
+
+    display: flex;
+
+    flex-direction: column;
+
+}
+
+
+.logo {
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    text-align: center;
+
+}
+
+
+.logo span {
+
+    color: #d4af37;
+
+    font-size: 16px;
+
+    margin-bottom: 8px;
+
+}
+
+
+.logo strong {
+
+    font-family: "Cinzel", serif;
+
+    font-size: 31px;
+
+    font-weight: 400;
+
+    color: #d4af37;
+
+}
+
+
+.logo small {
+
+    margin-top: 7px;
+
+    font-family: "Cinzel", serif;
+
+    font-size: 7px;
+
+    letter-spacing: 5px;
+
+    color: #71695e;
+
+}
+
+
+.linha-menu {
+
+    width: 100%;
+
+    height: 1px;
+
+    margin: 35px 0;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(212,175,55,.45),
+            transparent
+        );
+
+}
+
+
+.menu nav {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 27px;
+
+}
+
+
+.menu nav a {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    text-decoration: none;
+
+    font-family: "Cinzel", serif;
+
+    font-size: 8px;
+
+    letter-spacing: 2px;
+
+    color: #6e675d;
+
+    transition: .35s;
+
+}
+
+
+.menu nav a b {
+
+    font-size: 7px;
+
+    font-weight: 400;
+
+    color: #3e3934;
+
+}
+
+
+.menu nav a:hover {
+
+    color: #d4af37;
+
+    transform: translateX(5px);
+
+}
+
+
+.frase-menu {
+
+    margin-top: auto;
+
+    text-align: center;
+
+}
+
+
+.frase-menu span {
+
+    color: #d4af37;
+
+}
+
+
+.frase-menu p {
+
+    margin-top: 12px;
+
+    font-size: 12px;
+
+    line-height: 1.5;
+
+    font-style: italic;
+
+    color: #625b52;
+
+}
+
+
+/* =====================================================
+   CONTEÚDO
+===================================================== */
+
+.conteudo {
+
+    width:
+        calc(100% - 210px);
+
+    margin-left: 210px;
+
+    min-height: 100vh;
+
+    padding-bottom: 100px;
+
+}
+
+
+/* =====================================================
+   CABEÇALHO
+===================================================== */
+
+.cabecalho {
+
+    padding:
+        100px 30px 45px;
+
+    text-align: center;
+
+}
+
+
+.capitulo {
+
+    font-family: "Cinzel", serif;
+
+    font-size: 9px;
+
+    letter-spacing: 8px;
+
+    color: #806c35;
+
+}
+
+
+.cabecalho h1 {
+
+    margin-top: 20px;
+
+    font-family:
+        "Harry Potter",
+        "Cinzel",
+        serif;
+
+    font-size:
+        clamp(55px, 7vw, 90px);
+
+    font-weight: 400;
+
+    color: #d4af37;
+
+    text-shadow:
+        0 0 25px
+        rgba(212,175,55,.10);
+
+}
+
+
+.separador {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 18px;
+
+    margin: 25px auto;
+
+}
+
+
+.separador i {
+
+    display: block;
+
+    width: 110px;
+
+    height: 1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #806c35
+        );
+
+}
+
+
+.separador i:last-child {
+
+    background:
+        linear-gradient(
+            90deg,
+            #806c35,
+            transparent
+        );
+
+}
+
+
+.separador span {
+
+    color: #d4af37;
+
+    font-size: 14px;
+
+}
+
+
+.cabecalho p {
+
+    font-size: 18px;
+
+    color: #958b7b;
+
+}
+
+
+/* =====================================================
+   MURAL
+===================================================== */
+
+.mural {
+
+    position: relative;
+
+    width: min(1050px, 90%);
+
+    min-height: 850px;
+
+    margin: 20px auto 0;
+
+    padding: 60px;
+
+}
+
+
+/* =====================================================
+   PAPEL DE FUNDO
+===================================================== */
+
+.papel {
+
+    position: absolute;
+
+    inset: 80px 40px 60px;
+
+    background:
+
+        linear-gradient(
+            rgba(56, 33, 25, .48),
+            rgba(27, 15, 18, .62)
+        );
+
+    border:
+        1px solid
+        rgba(212,175,55,.14);
+
+    transform:
+        rotate(-1deg);
+
+    box-shadow:
+        0 30px 70px
+        rgba(0,0,0,.45);
+
+}
+
+
+.papel::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 14px;
+
+    border:
+        1px solid
+        rgba(212,175,55,.08);
+
+}
+
+
+.escrita {
+
+    position: absolute;
+
+    bottom: 35px;
+
+    right: 50px;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 18px;
+
+    line-height: 1.2;
+
+    font-style: italic;
+
+    color:
+        rgba(190,166,115,.30);
+
+    transform:
+        rotate(-4deg);
+
+}
+
+
+/* =====================================================
+   POLAROIDS
+===================================================== */
+
+.polaroid {
+
+    position: absolute;
+
+    width: 270px;
+
+    padding: 10px 10px 18px;
+
+    background:
+        #d8cdb7;
+
+    box-shadow:
+        0 20px 45px
+        rgba(0,0,0,.60);
+
+    color: #3a2923;
+
+    transition:
+        transform .35s ease,
+        box-shadow .35s ease;
+
+    z-index: 5;
+
+}
+
+
+.polaroid:hover {
+
+    z-index: 20;
+
+    box-shadow:
+        0 25px 60px
+        rgba(0,0,0,.75),
+
+        0 0 25px
+        rgba(212,175,55,.10);
+
+}
+
+
+/* =====================================================
+   IMAGENS
+===================================================== */
+
+.imagem {
+
+    width: 100%;
+
+    height: 190px;
+
+    overflow: hidden;
+
+    background: #21151a;
+
+}
+
+
+.imagem img {
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+
+    filter:
+        sepia(.10)
+        saturate(.80)
+        contrast(1.02);
+
+    transition:
+        transform .5s ease,
+        filter .5s ease;
+
+}
+
+
+.polaroid:hover img {
+
+    transform: scale(1.06);
+
+    filter:
+        sepia(0)
+        saturate(.95)
+        contrast(1.05);
+
+}
+
+
+.polaroid h2 {
+
+    margin-top: 12px;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 20px;
+
+    font-weight: 600;
+
+    color: #46342d;
+
+}
+
+
+.polaroid p {
+
+    margin-top: 2px;
+
+    font-size: 12px;
+
+    font-style: italic;
+
+    color: #79665a;
+
+}
+
+
+/* =====================================================
+   FITAS
+===================================================== */
+
+.fita {
+
+    position: absolute;
+
+    top: -17px;
+
+    left: 50%;
+
+    width: 80px;
+
+    height: 27px;
+
+    transform:
+        translateX(-50%)
+        rotate(-2deg);
+
+    background:
+        rgba(185,163,120,.72);
+
+    opacity: .85;
+
+    z-index: 3;
+
+}
+
+
+/* =====================================================
+   POSIÇÕES DAS FOTOS
+===================================================== */
+
+.foto1 {
+
+    top: 110px;
+
+    left: 110px;
+
+    transform:
+        rotate(-6deg);
+
+}
+
+
+.foto2 {
+
+    top: 100px;
+
+    right: 90px;
+
+    transform:
+        rotate(5deg);
+
+}
+
+
+.foto3 {
+
+    top: 350px;
+
+    left: 300px;
+
+    transform:
+        rotate(2deg);
+
+}
+
+
+.foto4 {
+
+    top: 390px;
+
+    right: 80px;
+
+    transform:
+        rotate(-5deg);
+
+}
+
+
+.foto5 {
+
+    top: 565px;
+
+    left: 95px;
+
+    transform:
+        rotate(4deg);
+
+}
+
+
+.foto6 {
+
+    top: 600px;
+
+    right: 335px;
+
+    transform:
+        rotate(-3deg);
+
+}
+
+
+/* =====================================================
+   CARTÃO DE FRASE
+===================================================== */
+
+.cartao {
+
+    position: absolute;
+
+    right: 40px;
+
+    bottom: 25px;
+
+    width: 190px;
+
+    padding: 25px 22px;
+
+    background:
+        rgba(181,157,111,.13);
+
+    border:
+        1px solid
+        rgba(212,175,55,.20);
+
+    transform:
+        rotate(3deg);
+
+    z-index: 10;
+
+}
+
+
+.cartao span {
+
+    display: block;
+
+    font-family: Georgia, serif;
+
+    font-size: 45px;
+
+    line-height: .4;
+
+    color: #d4af37;
+
+}
+
+
+.cartao p {
+
+    margin-top: 18px;
+
+    font-size: 19px;
+
+    line-height: 1.2;
+
+    font-style: italic;
+
+    color: #b8aa91;
+
+}
+
+
+.cartao small {
+
+    display: block;
+
+    margin-top: 15px;
+
+    font-size: 10px;
+
+    color: #766957;
+
+}
+
+
+/* =====================================================
+   DETALHE
+===================================================== */
+
+.snitch {
+
+    position: absolute;
+
+    left: 48px;
+
+    bottom: 55px;
+
+    color: #d4af37;
+
+    font-size: 27px;
+
+    opacity: .65;
+
+    animation:
+        flutuar 3s ease-in-out infinite;
+
+}
+
+
+@keyframes flutuar {
+
+    0%,
+    100% {
+
+        transform:
+            translateY(0)
+            rotate(0);
+
+    }
+
+    50% {
+
+        transform:
+            translateY(-10px)
+            rotate(10deg);
+
+    }
+
+}
+
+
+/* =====================================================
+   FINAL
+===================================================== */
+
+.final {
+
+    width: min(650px, 85%);
+
+    margin:
+        80px auto 0;
+
+    text-align: center;
+
+}
+
+
+.final > span {
+
+    color: #d4af37;
+
+    font-size: 20px;
+
+}
+
+
+.final p {
+
+    margin: 25px auto;
+
+    font-size: 19px;
+
+    line-height: 1.7;
+
+    font-style: italic;
+
+    color: #8f8678;
+
+}
+
+
+.final div {
+
+    width: 50px;
+
+    height: 1px;
+
+    margin: 25px auto;
+
+    background: #806c35;
+
+}
+
+
+.final a {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 25px;
+
+    padding: 16px 25px;
+
+    border:
+        1px solid #806c35;
+
+    text-decoration: none;
+
+    font-family: "Cinzel", serif;
+
+    font-size: 8px;
+
+    letter-spacing: 2px;
+
+    color: #d4af37;
+
+    transition: .4s;
+
+}
+
+
+.final a:hover {
+
+    background:
+        rgba(212,175,55,.07);
+
+    box-shadow:
+        0 0 25px
+        rgba(212,175,55,.08);
+
+}
+
+
+.final a b {
+
+    font-size: 16px;
+
+    font-weight: 400;
+
+}
+
+
+/* =====================================================
+   RESPONSIVO
+===================================================== */
+
+@media (max-width: 1000px) {
+
+    .menu {
+
+        width: 170px;
+
+    }
+
+
+    .conteudo {
+
+        width:
+            calc(100% - 170px);
+
+        margin-left: 170px;
+
+    }
+
+
+    .mural {
+
+        min-height: 950px;
+
+    }
+
+
+    .foto1 {
+        left: 40px;
+    }
+
+
+    .foto2 {
+        right: 30px;
+    }
+
+
+    .foto3 {
+        left: 230px;
+    }
+
+
+    .foto4 {
+        right: 25px;
+    }
+
+
+    .foto5 {
+        left: 35px;
+    }
+
+
+    .foto6 {
+        right: 230px;
+    }
+
+}
+
+
+@media (max-width: 750px) {
+
+    .menu {
+
+        position: relative;
+
+        width: 100%;
+
+        height: auto;
+
+        padding: 25px;
+
+    }
+
+
+    .menu nav {
+
+        flex-direction: row;
+
+        flex-wrap: wrap;
+
+        justify-content: center;
+
+        gap: 15px;
+
+    }
+
+
+    .frase-menu {
+
+        display: none;
+
+    }
+
+
+    .conteudo {
+
+        width: 100%;
+
+        margin-left: 0;
+
+    }
+
+
+    .cabecalho {
+
+        padding:
+            70px 20px 30px;
+
+    }
+
+
+    .cabecalho h1 {
+
+        font-size: 55px;
+
+    }
+
+
+    .mural {
+
+        width: 95%;
+
+        min-height: auto;
+
+        padding: 30px 0 60px;
+
+        display: flex;
+
+        flex-direction: column;
+
+        align-items: center;
+
+        gap: 35px;
+
+    }
+
+
+    .papel {
+
+        display: none;
+
+    }
+
+
+    .polaroid {
+
+        position: relative;
+
+        top: auto !important;
+
+        right: auto !important;
+
+        left: auto !important;
+
+        width: min(320px, 90%);
+
+    }
+
+
+    .foto1,
+    .foto2,
+    .foto3,
+    .foto4,
+    .foto5,
+    .foto6 {
+
+        transform:
+            rotate(-2deg);
+
+    }
+
+
+    .foto2,
+    .foto4,
+    .foto6 {
+
+        transform:
+            rotate(2deg);
+
+    }
+
+
+    .imagem {
+
+        height: 220px;
+
+    }
+
+
+    .cartao {
+
+        position: relative;
+
+        right: auto;
+
+        bottom: auto;
+
+        margin-top: 15px;
+
+    }
+
+
+    .snitch {
+
+        display: none;
+
+    }
+
+
+    .final {
+
+        margin-top: 30px;
+
+    }
+
+}
