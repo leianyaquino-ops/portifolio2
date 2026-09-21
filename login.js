@@ -20,7 +20,7 @@ async function logar() {
         if (data.sucesso) {
             alert(data.mensagem);
             // Redireciona para a página interna
-            window.location.href = "index2.html"; 
+            window.location.href = "home.html"; 
         } else {
             alert(data.mensagem); // "Usuário ou senha incorretos!"
         }
