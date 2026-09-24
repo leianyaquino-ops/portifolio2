@@ -1,52 +1,45 @@
-function cadastrar() {
+// =====================================================
+// CONFIGURAÇÃO DO SUPABASE
+// =====================================================
+const SUPABASE_URL = "https://fnhuzusppzcolcnpabor.supabase.co";
+const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZuaHV6dXNwcHpjb2xjbnBhYm9yIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTAyNzMyNzEsImV4cCI6MjEwNTg0OTI3MX0.vJVvyk2N2486O512Ly7b0JAMtu4XSnMqw2sFA3G7Guw";
 
-    const login = document.getElementById('novoLogin').value;
-    const senha = document.getElementById('novaSenha').value;
-    const confirmarSenha = document.getElementById('confirmarSenha').value;
-    const tipoUsuario = document.getElementById('tipoUsuario').value;
+// Inicializa a conexão com o Supabase
+const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
-    // Verifica se as senhas são iguais
+async function cadastrar() {
+    const email = document.getElementById("novoLogin").value;
+    const senha = document.getElementById("novaSenha").value;
+    const confirmarSenha = document.getElementById("confirmarSenha").value;
+    const tipoUsuario = document.getElementById("tipoUsuario").value;
+
     if (senha !== confirmarSenha) {
-        alert('As senhas não são iguais!');
+        alert("As senhas não coincidem!");
         return;
     }
 
-    // Envia os dados para o Node
-    fetch('http://localhost:3000/api/cadastro', {
-        method: 'POST',
+    try {
+        // Cadastra o usuário e salva o tipo de usuário nos dados do perfil
+        const { data, error } = await supabaseClient.auth.signUp({
+            email: email,
+            password: senha,
+            options: {
+                data: {
+                    tipo_usuario: tipoUsuario
+                }
+            }
+        });
 
-        headers: {
-            'Content-Type': 'application/json'
-        },
-
-        body: JSON.stringify({
-            login: login,
-            senha: senha,
-            tipoUsuario: tipoUsuario
-        })
-    })
-
-    .then(response => response.json())
-
-    .then(data => {
-
-        if (data.sucesso) {
-
-            alert(data.mensagem);
-
-            // Depois do cadastro, vai para a tela de login
-            window.location.href = 'login.html';
-
-        } else {
-
-            alert(data.mensagem);
+        if (error) {
+            alert("Erro ao cadastrar: " + error.message);
+            return;
         }
-    })
 
-    .catch(error => {
+        alert("Cadastro realizado com sucesso! Faça login para continuar.");
+        window.location.href = "index.html";
 
-        console.error('Erro:', error);
-
-        alert('Não foi possível conectar ao servidor.');
-    });
+    } catch (erro) {
+        console.error("Erro no cadastro:", erro);
+        alert("Ocorreu um erro ao tentar cadastrar.");
+    }
 }

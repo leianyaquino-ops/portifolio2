@@ -8,6 +8,9 @@
     <title>Cadastro</title>
 
     <link rel="stylesheet" href="login.css">
+
+    <!-- SDK do Supabase -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 
 <body>
@@ -19,12 +22,12 @@
         <form onsubmit="cadastrar(); return false;">
 
             <div class="txt_field">
-                <label for="novoLogin">Usuário</label>
+                <label for="novoLogin">E-mail / Usuário</label>
 
                 <input
-                    type="text"
+                    type="email"
                     id="novoLogin"
-                    placeholder="Crie seu usuário"
+                    placeholder="Crie seu usuário (e-mail)"
                     required
                 >
             </div>
@@ -80,7 +83,7 @@
 
             <div class="signup_link">
 
-                <a href="login.html">
+                <a href="index.html">
                     Já possui uma conta? Entrar 
                 </a>
 

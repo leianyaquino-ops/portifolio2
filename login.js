@@ -1,32 +1,34 @@
+// =====================================================
+// CONFIGURAÇÃO DO SUPABASE
+// =====================================================
+const SUPABASE_URL = "https://fnhuzusppzcolcnpabor.supabase.co";
+const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZuaHV6dXNwcHpjb2xjbnBhYm9yIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTAyNzMyNzEsImV4cCI6MjEwNTg0OTI3MX0.vJVvyk2N2486O512Ly7b0JAMtu4XSnMqw2sFA3G7Guw";
+
+// Inicializa a conexão com o Supabase
+const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
 async function logar() {
-    // Pega os valores digitados
-    var loginDigitado = document.getElementById("login").value;
-    var senhaDigitada = document.getElementById("senha").value;
+    const loginDigitado = document.getElementById("login").value;
+    const senhaDigitada = document.getElementById("senha").value;
 
     try {
-        // Envia os dados para o seu servidor Node.js
-        // (Certifique-se de que a porta 3000 é a que seu servidor está rodando)
-        const response = await fetch('http://localhost:3000/api/login', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ login: loginDigitado, senha: senhaDigitada })
+        // Autentica diretamente na nuvem do Supabase
+        const { data, error } = await supabaseClient.auth.signInWithPassword({
+            email: loginDigitado,
+            password: senhaDigitada
         });
 
-        // Recebe a resposta do servidor
-        const data = await response.json();
-
-        if (data.sucesso) {
-            alert(data.mensagem);
-            // Redireciona para a página interna
-            window.location.href = "home.html"; 
-        } else {
-            alert(data.mensagem); // "Usuário ou senha incorretos!"
+        if (error) {
+            alert("Erro ao conectar: " + error.message);
+            return;
         }
 
+        alert("Conectado com sucesso!");
+        // Redireciona para a página principal
+        window.location.href = "home.html";
+
     } catch (erro) {
-        console.error("Erro na requisição:", erro);
-        alert("Erro ao tentar conectar ao servidor. Verifique se o backend está rodando.");
+        console.error("Erro na autenticação:", erro);
+        alert("Ocorreu um erro ao tentar fazer login.");
     }
 }
