@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,25 +7,34 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="login-container">
-        <h2>Entrar</h2>
-        <form id="loginForm">
-            <div class="input-group">
-                <label for="email">E-mail</label>
-                <input type="email" id="email" required placeholder="Digite seu e-mail">
+    <div class="main-login">
+        <div class="left-login">
+            <h1>Faça login<br>E entre para o nosso time</h1>
+        </div>
+        <div class="right-login">
+            <div class="card-login">
+                <h1>LOGIN</h1>
+                <form id="loginForm">
+                    <div class="textfield">
+                        <label for="email">Usuário / E-mail</label>
+                        <input type="email" id="email" placeholder="E-mail" required>
+                    </div>
+                    <div class="textfield">
+                        <label for="password">Senha</label>
+                        <input type="password" id="password" placeholder="Senha" required>
+                    </div>
+                    <button type="submit" class="btn-login">Login</button>
+                </form>
+                <div class="cadastrar">
+                    <p>Não tem uma conta? <a href="cadastro.html">Cadastre-se</a></p>
+                </div>
             </div>
-            <div class="input-group">
-                <label for="password">Senha</label>
-                <input type="password" id="password" required placeholder="Digite sua senha">
-            </div>
-            <button type="submit">Entrar</button>
-        </form>
-        <p>Ainda não tem uma conta? <a href="cadastro.html">Cadastre-se</a></p>
+        </div>
     </div>
 
-    <!-- SDK do Supabase -->
+    <!-- SDK do Supabase (adicionado sem alterar o layout) -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-    <!-- Script de Login -->
+    <!-- Seu script de login -->
     <script src="login.js"></script>
 </body>
 </html>
