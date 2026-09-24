@@ -1,19 +1,21 @@
-// Configuração com as suas credenciais do Supabase
+// Credenciais do Supabase
 const SUPABASE_URL = 'https://fnhuzusppzcolcnpabor.supabase.co';
 const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZuaHV6dXNwcHpjb2xjbnBhYm9yIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTAyNzMyNzEsImV4cCI6MjEwNTg0OTI3MX0.vJVvyk2N2486O512Ly7b0JAMtu4XSnMqw2sFA3G7Guw';
 const _supabase = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
+// Captura o formulário existente na página sem alterar o HTML/CSS
 const cadastroForm = document.querySelector('form');
 
 if (cadastroForm) {
   cadastroForm.addEventListener('submit', async (e) => {
-    e.preventDefault(); // Impede o recarregamento da página
+    e.preventDefault(); // Impede o recarregamento/refresh da página
 
+    // Localiza os campos de entrada do seu layout original
     const emailInput = cadastroForm.querySelector('input[type="email"]') || document.getElementById('email');
     const passwordInput = cadastroForm.querySelector('input[type="password"]') || document.getElementById('password');
 
     if (!emailInput || !passwordInput) {
-      alert('Campos de e-mail ou senha não foram encontrados no formulário.');
+      alert('Campos de e-mail ou senha não foram encontrados.');
       return;
     }
 
