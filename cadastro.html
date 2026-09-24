@@ -1,100 +1,31 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Cadastro</title>
-
-    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="login-container">
+        <h2>Cadastrar</h2>
+        <form id="cadastroForm">
+            <div class="input-group">
+                <label for="email">E-mail</label>
+                <input type="email" id="email" required placeholder="Digite seu e-mail">
+            </div>
+            <div class="input-group">
+                <label for="password">Senha</label>
+                <input type="password" id="password" required placeholder="Mínimo 6 caracteres">
+            </div>
+            <button type="submit">Cadastrar</button>
+        </form>
+        <p>Já tem uma conta? <a href="index.html">Faça Login</a></p>
+    </div>
 
     <!-- SDK do Supabase -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-</head>
-
-<body>
-
-    <div class="center">
-
-        <h1>Cadastro</h1>
-
-        <form onsubmit="cadastrar(); return false;">
-
-            <div class="txt_field">
-                <label for="novoLogin">E-mail / Usuário</label>
-
-                <input
-                    type="email"
-                    id="novoLogin"
-                    placeholder="Crie seu usuário (e-mail)"
-                    required
-                >
-            </div>
-
-            <div class="txt_field">
-                <label for="novaSenha">Senha</label>
-
-                <input
-                    type="password"
-                    id="novaSenha"
-                    placeholder="Crie sua senha"
-                    required
-                >
-            </div>
-
-            <div class="txt_field">
-                <label for="confirmarSenha">Confirmar senha</label>
-
-                <input
-                    type="password"
-                    id="confirmarSenha"
-                    placeholder="Digite sua senha novamente"
-                    required
-                >
-            </div>
-
-            <div class="txt_field">
-                <label for="tipoUsuario">Tipo de usuário</label>
-
-                <select id="tipoUsuario" required>
-                    <option value="">Selecione o tipo de usuário</option>
-                    <option value="aluno">Aluno</option>
-                    <option value="professor">Professor</option>
-                    <option value="administrador">Administrador</option>
-                </select>
-            </div>
-
-            <div class="botoes">
-
-                <input
-                    type="submit"
-                    value="Cadastrar"
-                    class="btn-conectar"
-                >
-
-                <input
-                    type="reset"
-                    value="Cancelar"
-                    class="btn-cancelar"
-                >
-
-            </div>
-
-            <div class="signup_link">
-
-                <a href="index.html">
-                    Já possui uma conta? Entrar 
-                </a>
-
-            </div>
-
-        </form>
-
-    </div>
-
+    <!-- Script de Cadastro -->
     <script src="cadastro.js"></script>
-
 </body>
-
 </html>
