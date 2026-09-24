@@ -1,39 +1,79 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Login</title>
-    <link rel="stylesheet" href="style.css">
+
+    <!-- Aponta para o seu arquivo de CSS original (ajuste o nome se for style.css ou login.css) -->
+    <link rel="stylesheet" href="login.css">
 </head>
+
 <body>
-    <div class="main-login">
-        <div class="left-login">
-            <h1>Faça login<br>E entre para o nosso time</h1>
-        </div>
-        <div class="right-login">
-            <div class="card-login">
-                <h1>LOGIN</h1>
-                <form id="loginForm">
-                    <div class="textfield">
-                        <label for="email">Usuário / E-mail</label>
-                        <input type="email" id="email" placeholder="E-mail" required>
-                    </div>
-                    <div class="textfield">
-                        <label for="password">Senha</label>
-                        <input type="password" id="password" placeholder="Senha" required>
-                    </div>
-                    <button type="submit" class="btn-login">Login</button>
-                </form>
-                <div class="cadastrar">
-                    <p>Não tem uma conta? <a href="cadastro.html">Cadastre-se</a></p>
-                </div>
+
+    <div class="center">
+
+        <h1>Login</h1>
+
+        <form>
+
+            <div class="txt_field">
+                <label for="login">Usuário</label>
+
+                <input 
+                    type="email"
+                    id="login"
+                    placeholder="Digite seu e-mail"
+                    required
+                >
             </div>
-        </div>
+
+            <div class="txt_field">
+                <label for="senha">Senha</label>
+
+                <input 
+                    type="password"
+                    id="senha"
+                    placeholder="Digite sua senha"
+                    required
+                >
+            </div>
+
+            <div class="pass">
+                <a href="#">Esqueceu a senha?</a>
+            </div>
+
+            <div class="botoes">
+
+                <input 
+                    type="submit"
+                    value="Conectar"
+                    class="btn-conectar"
+                >
+
+                <input 
+                    type="reset"
+                    value="Cancelar"
+                    class="btn-cancelar"
+                >
+
+            </div>
+
+            <div class="signup_link">
+                <a href="cadastro.html">Não é membro? Cadastre-se</a>
+            </div>
+
+        </form>
+
     </div>
 
-    <!-- Carregamento do SDK do Supabase antes do script de login -->
+    <!-- SDK do Supabase necessário para a autenticação em nuvem -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <!-- Seu script com os IDs originais (login e senha) -->
     <script src="login.js"></script>
+
 </body>
+
 </html>
