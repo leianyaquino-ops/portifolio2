@@ -1,34 +1,28 @@
-// =====================================================
-// CONFIGURAÇÃO DO SUPABASE
-// =====================================================
-const SUPABASE_URL = "https://fnhuzusppzcolcnpabor.supabase.co";
-const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZuaHV6dXNwcHpjb2xjbnBhYm9yIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTAyNzMyNzEsImV4cCI6MjEwNTg0OTI3MX0.vJVvyk2N2486O512Ly7b0JAMtu4XSnMqw2sFA3G7Guw";
+// Inicializa o cliente do Supabase
+const SUPABASE_URL = 'https://fnhuzusppzcolcnpabor.supabase.co';
+const SUPABASE_KEY = 'SUA_CHAVE_ANON_PUBLIC_AQUI';
+const _supabase = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
-// Inicializa a conexão com o Supabase
-const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+const loginForm = document.getElementById('loginForm');
 
-async function logar() {
-    const loginDigitado = document.getElementById("login").value;
-    const senhaDigitada = document.getElementById("senha").value;
+if (loginForm) {
+  loginForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
 
-    try {
-        // Autentica diretamente na nuvem do Supabase
-        const { data, error } = await supabaseClient.auth.signInWithPassword({
-            email: loginDigitado,
-            password: senhaDigitada
-        });
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
 
-        if (error) {
-            alert("Erro ao conectar: " + error.message);
-            return;
-        }
+    // Faz o login direto no Supabase
+    const { data, error } = await _supabase.auth.signInWithPassword({
+      email: email,
+      password: password,
+    });
 
-        alert("Conectado com sucesso!");
-        // Redireciona para a página principal
-        window.location.href = "home.html";
-
-    } catch (erro) {
-        console.error("Erro na autenticação:", erro);
-        alert("Ocorreu um erro ao tentar fazer login.");
+    if (error) {
+      alert('Erro ao fazer login: ' + error.message);
+    } else {
+      alert('Login realizado com sucesso!');
+      window.location.href = 'home.html';
     }
+  });
 }

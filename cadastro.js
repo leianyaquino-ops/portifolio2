@@ -1,45 +1,26 @@
-// =====================================================
-// CONFIGURAÇÃO DO SUPABASE
-// =====================================================
-const SUPABASE_URL = "https://fnhuzusppzcolcnpabor.supabase.co";
-const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZuaHV6dXNwcHpjb2xjbnBhYm9yIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTAyNzMyNzEsImV4cCI6MjEwNTg0OTI3MX0.vJVvyk2N2486O512Ly7b0JAMtu4XSnMqw2sFA3G7Guw";
+const SUPABASE_URL = 'https://fnhuzusppzcolcnpabor.supabase.co';
+const SUPABASE_KEY = 'SUA_CHAVE_ANON_PUBLIC_AQUI';
+const _supabase = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
-// Inicializa a conexão com o Supabase
-const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+const cadastroForm = document.getElementById('cadastroForm');
 
-async function cadastrar() {
-    const email = document.getElementById("novoLogin").value;
-    const senha = document.getElementById("novaSenha").value;
-    const confirmarSenha = document.getElementById("confirmarSenha").value;
-    const tipoUsuario = document.getElementById("tipoUsuario").value;
+if (cadastroForm) {
+  cadastroForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
 
-    if (senha !== confirmarSenha) {
-        alert("As senhas não coincidem!");
-        return;
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+
+    const { data, error } = await _supabase.auth.signUp({
+      email: email,
+      password: password,
+    });
+
+    if (error) {
+      alert('Erro ao cadastrar: ' + error.message);
+    } else {
+      alert('Cadastro realizado com sucesso!');
+      window.location.href = 'index.html';
     }
-
-    try {
-        // Cadastra o usuário e salva o tipo de usuário nos dados do perfil
-        const { data, error } = await supabaseClient.auth.signUp({
-            email: email,
-            password: senha,
-            options: {
-                data: {
-                    tipo_usuario: tipoUsuario
-                }
-            }
-        });
-
-        if (error) {
-            alert("Erro ao cadastrar: " + error.message);
-            return;
-        }
-
-        alert("Cadastro realizado com sucesso! Faça login para continuar.");
-        window.location.href = "index.html";
-
-    } catch (erro) {
-        console.error("Erro no cadastro:", erro);
-        alert("Ocorreu um erro ao tentar cadastrar.");
-    }
+  });
 }
