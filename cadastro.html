@@ -4,9 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Cadastro</title>
-
     <link rel="stylesheet" href="cadastro.css">
 </head>
 
@@ -16,11 +14,10 @@
 
         <h1>Cadastro</h1>
 
-        <form onsubmit="cadastrar(); return false;">
+        <form onsubmit="cadastrar(event); return false;">
 
             <div class="txt_field">
                 <label for="novoLogin">Usuário</label>
-
                 <input
                     type="text"
                     id="novoLogin"
@@ -31,7 +28,6 @@
 
             <div class="txt_field">
                 <label for="novaSenha">Senha</label>
-
                 <input
                     type="password"
                     id="novaSenha"
@@ -42,7 +38,6 @@
 
             <div class="txt_field">
                 <label for="confirmarSenha">Confirmar senha</label>
-
                 <input
                     type="password"
                     id="confirmarSenha"
@@ -53,7 +48,6 @@
 
             <div class="txt_field">
                 <label for="tipoUsuario">Tipo de usuário</label>
-
                 <select id="tipoUsuario" required>
                     <option value="">Selecione o tipo de usuário</option>
                     <option value="aluno">Aluno</option>
@@ -63,33 +57,27 @@
             </div>
 
             <div class="botoes">
-
                 <input
                     type="submit"
                     value="Cadastrar"
                     class="btn-conectar"
                 >
-
                 <input
                     type="reset"
                     value="Cancelar"
                     class="btn-cancelar"
                 >
-
             </div>
 
             <div class="signup_link">
-
-                <a href="login.html">
-                    Já possui uma conta? Entrar 
-                </a>
-
+                <a href="index.html">Já possui uma conta? Entrar</a>
             </div>
 
         </form>
 
     </div>
 
+    <script src="https://jsdelivr.net"></script>
     <script src="cadastro.js"></script>
 
 </body>

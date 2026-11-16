@@ -1,52 +1,41 @@
-function cadastrar() {
+const SUPABASE_URL = "https://supabase.co";
+const SUPABASE_ANON_KEY = "sb_publishable_PG9Dpirzhx35hvKTyMf9yw_WkzsKj7a"; 
+const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
-    const login = document.getElementById('novoLogin').value;
+async function cadastrar(event) {
+    if (event) event.preventDefault();
+
+    const login = document.getElementById('novoLogin').value.trim();
     const senha = document.getElementById('novaSenha').value;
     const confirmarSenha = document.getElementById('confirmarSenha').value;
     const tipoUsuario = document.getElementById('tipoUsuario').value;
 
-    // Verifica se as senhas são iguais
     if (senha !== confirmarSenha) {
         alert('As senhas não são iguais!');
         return;
     }
 
-    // Envia os dados para o Node
-    fetch('http://localhost:3000/api/cadastro', {
-        method: 'POST',
+    try {
+        const { data, error } = await supabaseClient
+            .from('usuarios')
+            .insert([
+                { login: login, senha: senha, tipo_usuario: tipoUsuario }
+            ]);
 
-        headers: {
-            'Content-Type': 'application/json'
-        },
-
-        body: JSON.stringify({
-            login: login,
-            senha: senha,
-            tipoUsuario: tipoUsuario
-        })
-    })
-
-    .then(response => response.json())
-
-    .then(data => {
-
-        if (data.sucesso) {
-
-            alert(data.mensagem);
-
-            // Depois do cadastro, vai para a tela de login
-            window.location.href = 'login.html';
-
-        } else {
-
-            alert(data.mensagem);
+        if (error) {
+            if (error.code === '23505') {
+                alert('Este nome de usuário já está em uso!');
+            } else {
+                alert('Erro ao cadastrar: ' + error.message);
+            }
+            return;
         }
-    })
 
-    .catch(error => {
+        alert('Cadastro realizado com sucesso!');
+        window.location.href = 'index.html';
 
+    } catch (error) {
         console.error('Erro:', error);
-
-        alert('Não foi possível conectar ao servidor.');
-    });
+        alert('Não foi possível conectar ao Supabase.');
+    }
 }
