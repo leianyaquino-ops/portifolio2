@@ -1,0 +1,195 @@
+body{
+    margin: 0;
+    padding: 40px;
+
+    background-image: url(img/df527562f0b1c48415d4b0435860318f.jpg);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+
+    font-family: Georgia, serif;
+}
+
+
+body::before{
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.65);
+    z-index: -1;
+}
+
+
+h1{
+    text-align: center;
+
+    color: #9d0a0a;
+
+    font-size: 70px;
+
+    text-shadow:
+    0 0 10px #ffffff,
+    0 0 25px #ff2b2b;
+
+    margin-bottom: 60px;
+}
+
+
+h2{
+    text-align: center;
+
+    font-size: 45px;
+
+    margin-top: 70px;
+    margin-bottom: 40px;
+}
+
+
+
+.atividades{
+    display: flex;
+
+    justify-content: center;
+
+    flex-wrap: wrap;
+
+    gap: 35px;
+}
+
+
+
+.trabalho{
+    width: 320px;
+
+    padding: 20px;
+
+    border-radius: 25px;
+
+    backdrop-filter: blur(10px);
+
+    transition: 0.5s;
+
+    border: 2px solid white;
+}
+
+.trabalho:hover{
+    transform: translateY(-10px) scale(1.03);
+}
+
+
+
+.trabalho img{
+    width: 100%;
+
+    border-radius: 15px;
+
+    margin-bottom: 15px;
+}
+
+
+
+.trabalho h3{
+    text-align: center;
+
+    font-size: 28px;
+
+    margin-bottom: 15px;
+}
+
+
+
+.trabalho p{
+    text-align: center;
+
+    line-height: 28px;
+
+    font-size: 17px;
+}
+.grifinoria h2{
+    color: #ffffff;
+
+    text-shadow:
+    0 0 10px #946b2d,
+    0 0 20px #946b2d;
+}
+
+.grifinoria .trabalho{
+    background: rgba(60, 10, 10, 0.5);
+
+    border-color: #4e0000;
+
+    box-shadow:
+    0 0 15px rgba(148,107,45,0.4);
+}
+
+.grifinoria .trabalho:hover{
+    box-shadow:
+    0 0 25px #9d0a0a,
+    0 0 50px rgba(148,107,45,0.7);
+}
+
+
+.grifinoria .trabalho p{
+    color: white;
+}
+.grifinoria .trabalho p{
+    color: white;
+}
+
+.atvdescolhida p{
+    text-align: center;
+color: #ffffff;
+    line-height: 28px;
+
+    font-size: 17px;
+}
+.grifinoria.atvdescolhida p{
+    color: white;
+}
+.grifinoria .atvdescolhida{
+    background: rgba(206, 200, 186, 0.521);
+
+    border-color: #ffffff;
+
+    box-shadow:
+    0 0 15px rgba(148,107,45,0.4);
+}
+
+.grifinoria.atvdescolhida:hover{
+    box-shadow:
+    0 0 25px #0a1e4e,
+    0 0 50px rgba(148,107,45,0.7);
+}
+
+
+.grifinoria.atvdescolhida p{
+    color: white;
+}
+
+.atvdescolhida{
+    width: 320px;
+
+    padding: 20px;
+
+    border-radius: 25px;
+
+    backdrop-filter: blur(10px);
+
+    transition: 0.5s;
+
+    border: 2px solid white;
+}
+
+.atvdescolhida:hover{
+    transform: translateY(-10px) scale(1.03);
+}
+
+
+
+.atvdescolhida img{
+    width: 100%;
+
+    border-radius: 15px;
+
+    margin-bottom: 15px;
+}

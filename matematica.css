@@ -1,0 +1,192 @@
+body{
+    margin: 0;
+    padding: 40px;
+
+    background-image:url(img/3f2e87719ff97d2be793a949136fb3c5.jpg);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+
+    font-family: Georgia, serif;
+}
+
+
+body::before{
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.65);
+    z-index: -1;
+}
+
+
+h1{
+    text-align: center;
+
+    color: #193812;
+
+    font-size: 70px;
+
+    text-shadow:
+    0 0 10px #ffffff,
+    0 0 25px #06ff34;
+
+    margin-bottom: 60px;
+}
+
+
+h2{
+    text-align: center;
+
+    font-size: 45px;
+
+    margin-top: 70px;
+    margin-bottom: 40px;
+}
+
+
+
+.atividades{
+    display: flex;
+
+    justify-content: center;
+
+    flex-wrap: wrap;
+
+    gap: 35px;
+}
+
+
+
+.trabalho{
+    width: 320px;
+
+    padding: 20px;
+
+    border-radius: 25px;
+
+    backdrop-filter: blur(10px);
+
+    transition: 0.5s;
+
+    border: 2px solid white;
+}
+
+.trabalho:hover{
+    transform: translateY(-10px) scale(1.03);
+}
+
+
+
+.trabalho img{
+    width: 100%;
+
+    border-radius: 15px;
+
+    margin-bottom: 15px;
+}
+
+
+
+.trabalho h3{
+    text-align: center;
+
+    font-size: 28px;
+
+    margin-bottom: 15px;
+}
+
+
+
+.trabalho p{
+    text-align: center;
+
+    line-height: 28px;
+
+    font-size: 17px;
+}
+.sonserina h2{
+    color: #ffffff;
+
+    text-shadow:
+    0 0 10px #946b2d,
+    0 0 20px #946b2d;
+}
+
+.sonserina .trabalho{
+    background: rgba(26, 60, 10, 0.384);
+
+    border-color: #193812;
+
+    box-shadow:
+    0 0 15px rgba(0, 255, 60, 0.48);
+}
+
+.sonserina .trabalho:hover{
+    box-shadow:
+    0 0 25px #193812,
+    0 0 50px rgba(148,107,45,0.7);
+}
+
+
+.sonserina .trabalho p{
+    color: white;
+}
+
+.atvdescolhida p{
+    text-align: center;
+
+    line-height: 28px;
+
+    font-size: 17px;
+}
+.sonserina .atvdescolhida p{
+    color: white;
+}
+.sonserina .atvdescolhida{
+    background: rgba(206, 200, 186, 0.521);
+
+    border-color: #ffffff;
+
+    box-shadow:
+    0 0 15px rgba(148,107,45,0.4);
+}
+
+.sonserina .atvdescolhida:hover{
+    box-shadow:
+    0 0 25px #0a1e4e,
+    0 0 50px rgba(148,107,45,0.7);
+}
+
+
+.sonserina .atvdescolhida p{
+    color: white;
+}
+
+.atvdescolhida{
+    width: 320px;
+
+    padding: 20px;
+
+    border-radius: 25px;
+
+    backdrop-filter: blur(10px);
+
+    transition: 0.5s;
+
+    border: 2px solid white;
+}
+
+.atvdescolhida:hover{
+    transform: translateY(-10px) scale(1.03);
+}
+
+
+
+.atvdescolhida img{
+    width: 100%;
+
+    border-radius: 15px;
+
+    margin-bottom: 15px;
+}
