@@ -1,14 +1,71 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Anexos</title>
-<link rel="stylesheet" href="anexos.css">
+    <link rel="stylesheet" href="anexos.css">
 </head>
 <body>
-     <main class="container">
-
+    <main class="container">
         <section class="card">
+            <h1>Anexos</h1>
+            <div class="linha"></div>
+
+            <div class="carrossel">
+                <button class="seta esquerda" onclick="mudarSlide(-1)">&#10094;</button>
+
+                <div class="slides-container">
+                    <div class="slide ativo">
+                        <img src="img/Black & White Music Album Cover.jpg" alt="Anexo 1">
+                    </div>
+
+                    <div class="slide">
+                        <img src="img/Black & White Music Album Cover (1).jpg" alt="Anexo 2">
+                    </div>
+                </div>
+
+                <button class="seta direita" onclick="mudarSlide(1)">&#10095;</button>
+            </div>
+
+            <!-- Indicadores (bolinhas) -->
+            <div class="indicadores">
+                <span class="dot ativo" onclick="irParaSlide(0)"></span>
+                <span class="dot" onclick="irParaSlide(1)"></span>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        let slideAtual = 0;
+        const slides = document.querySelectorAll('.slide');
+        const dots = document.querySelectorAll('.dot');
+
+        function mostrarSlide(indice) {
+            if (indice >= slides.length) slideAtual = 0;
+            else if (indice < 0) slideAtual = slides.length - 1;
+            else slideAtual = indice;
+
+            slides.forEach(slide => slide.classList.remove('ativo'));
+            dots.forEach(dot => dot.classList.remove('ativo'));
+
+            slides[slideAtual].classList.add('ativo');
+            dots[slideAtual].classList.add('ativo');
+        }
+
+        function mudarSlide(direcao) {
+            mostrarSlide(slideAtual + direcao);
+        }
+
+        function irParaSlide(indice) {
+            mostrarSlide(indice);
+        }
+
+        // Navegação pelas setas do teclado
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') mudarSlide(-1);
+            if (e.key === 'ArrowRight') mudarSlide(1);
+        });
+    </script>
 </body>
 </html>
