@@ -14,7 +14,7 @@
 
         <h1>Cadastro</h1>
 
-        <form onsubmit="cadastrar(event); return false;">
+        <form onsubmit="event.preventDefault(); cadastrar(event); return false;">
 
             <div class="txt_field">
                 <label for="novoLogin">Usuário</label>
@@ -77,7 +77,7 @@
 
     </div>
 
-    <script src="https://jsdelivr.net"></script>
+    <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
     <script src="cadastro.js"></script>
 
 </body>

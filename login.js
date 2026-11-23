@@ -1,6 +1,5 @@
 const SUPABASE_URL = "https://fnhuzusppzcolcnpabor.supabase.co";
-const SUPABASE_ANON_KEY = "sb_publishable_PG9Dpirzhx35hvKTyMf9yw_WkzsKj7a"; 
-const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+const SUPABASE_ANON_KEY = "sb_publishable_PG9Dpirzhx35hvKTyMf9yw_WkzsKj7a";
 
 async function logar(event) {
     if (event) event.preventDefault();
@@ -10,20 +9,32 @@ async function logar(event) {
 
     if (!loginDigitado || !senhaDigitada) {
         alert("Preencha o login e a senha!");
-        return;
+        return false;
     }
 
     try {
-        const { data, error } = await supabaseClient
-            .from("usuarios")
-            .select("*")
-            .eq("login", loginDigitado)
-            .eq("senha", senhaDigitada)
-            .single();
+        const urlConsulta = `${SUPABASE_URL}/rest/v1/usuarios?login=eq.${encodeURIComponent(loginDigitado)}&senha=eq.${encodeURIComponent(senhaDigitada)}&select=*`;
 
-        if (error || !data) {
+        const resposta = await fetch(urlConsulta, {
+            method: 'GET',
+            headers: {
+                'apikey': SUPABASE_ANON_KEY,
+                'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
+                'Content-Type': 'application/json'
+            }
+        });
+
+        if (!resposta.ok) {
+            const erroDados = await resposta.json();
+            alert("Erro ao consultar: " + (erroDados.message || resposta.statusText));
+            return false;
+        }
+
+        const usuarios = await resposta.json();
+
+        if (!usuarios || usuarios.length === 0) {
             alert("Login ou senha incorretos.");
-            return;
+            return false;
         }
 
         alert("Login realizado com sucesso!");
@@ -31,6 +42,7 @@ async function logar(event) {
 
     } catch (erro) {
         console.error("Erro na requisição:", erro);
-        alert("Não foi possível conectar ao Supabase.");
+        alert("Não foi possível conectar ao Supabase: " + erro.message);
     }
+    return false;
 }

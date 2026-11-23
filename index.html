@@ -14,7 +14,7 @@
 
         <h1>Login</h1>
 
-        <form onsubmit="logar(event); return false;">
+        <form onsubmit="event.preventDefault(); logar(event); return false;">
 
             <div class="txt_field">
                 <label for="login">Usuário</label>
@@ -61,7 +61,7 @@
 
     </div>
 
-    <script src="https://jsdelivr.net"></script>
+    <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
     <script src="login.js"></script>
 
 </body>
